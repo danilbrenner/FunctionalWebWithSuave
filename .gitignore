@@ -1,2 +1,4 @@
 src/.vs/
-src/packages
+packages
+
+.paket/paket.exe

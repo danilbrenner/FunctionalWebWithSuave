@@ -1,0 +1,7 @@
+source https://nuget.org/api/v2
+
+nuget Suave
+nuget FSharp.Data
+nuget Newtonsoft.Json
+nuget DotLiquid
+nuget Suave.DotLiquid
