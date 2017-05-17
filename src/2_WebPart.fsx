@@ -7,9 +7,8 @@ open System.Text
 
 //type WebPart = HttpContext -> Async<HttpContext option>
 
-let myWebPart (ctx:HttpContext) = async {
-    let helloString = "Hello WebPart"
-    let bytes = Encoding.UTF8.GetBytes helloString
+let MyOK (text:string) (ctx:HttpContext) = async {
+    let bytes = Encoding.UTF8.GetBytes text
     let response = { 
         ctx.response with 
             status = HttpCode.HTTP_200.status; 
@@ -18,4 +17,4 @@ let myWebPart (ctx:HttpContext) = async {
     return Some { ctx with response = response}
 }
 
-startWebServer defaultConfig myWebPart
+startWebServer defaultConfig (MyOK "Hello Webpart")

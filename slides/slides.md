@@ -28,4 +28,4 @@ Suave is awesome!
 #Спасибо за внимание
 * [Suave](https://suave.io/)
 * [Suave on github](https://github.com/SuaveIO/suave)
-* [все примеры тут](https://github.com/danilbrenner)
+* [все примеры тут](https://github.com/danilbrenner/FSharpWebAppsPresi)

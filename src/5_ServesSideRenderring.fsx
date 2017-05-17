@@ -11,13 +11,14 @@ open DotLiquid
 type Model =
   { title : string }
 
-setTemplatesDir "./templates"
+let getModel text = 
+  { title = text }
 
-let o = { title = "Functional Meetup" }
+setTemplatesDir "./templates"
 
 let app =
   choose
     [ GET >=> choose
-        [ path "/" >=> page "index.liquid" o ]]
+        [ path "/" >=> page "index.liquid" (getModel "Functional Meetup") ]]
 
 startWebServer defaultConfig app

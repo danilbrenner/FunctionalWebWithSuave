@@ -47,9 +47,8 @@ let getForecast (city:string) (ctx:HttpContext) = async {
 }
 
 let app = 
-    choose [
-        GET >=> choose [
-            path "/" >=> (Successful.OK "Hi there! I'm a weather sample")
-            pathScan "/forecast/%s" getForecast]]
+    GET >=> choose [
+        path "/" >=> (Successful.OK "Hi there! I'm a weather sample")
+        pathScan "/forecast/%s" getForecast]
 
 startWebServer defaultConfig app

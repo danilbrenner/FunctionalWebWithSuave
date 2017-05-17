@@ -2,5 +2,4 @@
 
 open Suave
 
-Successful.OK "Hello Suave!"
-|> startWebServer defaultConfig
+startWebServer defaultConfig (Successful.OK "Hello Suave!")
