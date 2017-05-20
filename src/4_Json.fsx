@@ -37,7 +37,6 @@ let mapJson<'T> (o : Async<'T>) (ctx: HttpContext) = async {
     let bytes = 
         JsonConvert.SerializeObject ob
         |> Encoding.Default.GetBytes
-    
     let response = {
         ctx.response with
             status = HttpCode.HTTP_200.status;

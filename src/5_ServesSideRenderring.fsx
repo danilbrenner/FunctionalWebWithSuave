@@ -16,9 +16,5 @@ let getModel text =
 
 setTemplatesDir "./templates"
 
-let app =
-  choose
-    [ GET >=> choose
-        [ path "/" >=> page "index.liquid" (getModel "Functional Meetup") ]]
-
-startWebServer defaultConfig app
+page "index.liquid" (getModel "Functional Meetup")
+|> startWebServer defaultConfig 
