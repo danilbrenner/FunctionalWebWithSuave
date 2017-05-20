@@ -1,4 +1,4 @@
-#Functional web with F# and Suave
+#Functional web apps using F# and Suave
 ---
 
 ##Как делать web на F#?
@@ -19,7 +19,7 @@
 Suave is awesome!
 --
 
-###Осонвные части
+###Основные части
 * HttpContext
 * WebParts
 * Combinators
