@@ -32,21 +32,18 @@ let getForecast city = async {
         |> Array.map mapItem
 }
 
-let toJson<'T> (o: 'T) =
-    JsonConvert.SerializeObject o
-    |> Encoding.Default.GetBytes
-
-let toResp (ctx: HttpContext) result =
+let mapJson<'T> (o : Async<'T>) (ctx: HttpContext) = async {
+    let! ob = o
+    let bytes = 
+        JsonConvert.SerializeObject ob
+        |> Encoding.Default.GetBytes
+    
     let response = {
         ctx.response with
             status = HttpCode.HTTP_200.status;
-            content = HttpContent.Bytes (toJson result)
+            content = HttpContent.Bytes bytes
     }
-    Some { ctx with response = response}
-
-let mapJson<'T> (o : Async<'T>) (ctx: HttpContext) = async {
-    let! ob = o
-    return (toResp ctx ob)
+    return Some { ctx with response = response}
 }
 
 let app =

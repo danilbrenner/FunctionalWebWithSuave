@@ -17,7 +17,7 @@ open System.Runtime.Serialization
 [<DataContract>]
 type ForecastItem = { 
     [<field: DataMember(Name = "date")>]
-    date: string
+    date: DateTime
     [<field: DataMember(Name = "temp")>]
     temperature: decimal }
 
@@ -25,8 +25,6 @@ let mapItem (itm:OpenWeatherMapData.WeatherForecastData.List) =
     let dateStr = 
         DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc)
         |> (fun i -> i.AddSeconds(float(itm.Dt)))
-        |> (fun i -> i.ToString("o")) 
-        //Suave uses the default BCL JSON serializer DataContractJsonSerializer. So I'm using ToString(o) to get iso 8601 date . For more elegant way see next sample. 
     let temperature = itm.Temp.Max - 273.15M //Kelvin -> Celsius
     { date = dateStr; temperature = temperature }
 
