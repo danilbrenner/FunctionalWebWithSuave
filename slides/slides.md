@@ -1,28 +1,34 @@
 #Functional web apps using F# and Suave
+
 ---
 
 ##Как делать web на F#?
 * Не делать web на F# 
 * Стандартные фреймворки на F#
+
 ---
 
 ##Suave
 Легковесный, функциональный web сервер на F#
 
 ![alt text](./suave-logo.png)
+
 --
 
 ##Примеры
+
 ---
 
 ##Резюме
 Suave is awesome!
+
 --
 
 ###Основные части
 * HttpContext
 * WebParts
 * Combinators
+
 ---
 
 #Спасибо за внимание

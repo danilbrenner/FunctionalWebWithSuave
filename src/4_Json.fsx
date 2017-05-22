@@ -45,10 +45,12 @@ let mapJson<'T> (o : Async<'T>) (ctx: HttpContext) = async {
     return Some { ctx with response = response}
 }
 
+//t1->t2>>t2->t3
+
 let app =
     choose [
         GET >=> choose [
             path "/" >=> (Successful.OK "Hi there! I'm a weather sample")
-            pathScan "/forecast/%s" (mapJson << getForecast) ]]
+            pathScan "/forecast/%s" (getForecast >> mapJson) ]]
 
 startWebServer defaultConfig app
