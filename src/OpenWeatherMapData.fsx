@@ -3,7 +3,8 @@
 module OpenWeatherMapData =
     open FSharp.Data
 
-    type WeatherForecastData = JsonProvider<"http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=1&appid=1f7bf8a24c17cad9e14f4f9a3c29e911">
+    type WeatherForecastData = 
+        JsonProvider<"http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=1&appid=1f7bf8a24c17cad9e14f4f9a3c29e911">
 
     let getData city = async {
         let! forecastResult = 
